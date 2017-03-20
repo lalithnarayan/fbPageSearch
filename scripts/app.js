@@ -14,14 +14,13 @@ function fetchPageDetails(pageName) {
     if (FB) {
         var urlCall = "/search?q=" + pageName + "&type=page&access_token=";
         FB.api(urlCall, function(response) {
-            console.log(response);
-
-        });
-        FB.api('/me', { fields: 'last_name' }, function(response) {
-            console.log(response);
+          if(response.data){
+              renderPage()
+          }
         });
     }
-
+}
+function renderPage(){
     var resultsEle = document.getElementById('results');
     var searchbar = document.getElementById('searchbar');
     var pos = 0;
@@ -39,15 +38,3 @@ function fetchPageDetails(pageName) {
     }
 }
 
-logInWithFacebook = function() {
-    FB.login(function(response) {
-        if (response.authResponse) {
-            alert('You are logged in &amp; cookie set!');
-            // Now you can redirect the user or do an AJAX request to
-            // a PHP script that grabs the signed request from the cookie.
-        } else {
-            alert('User cancelled login or did not fully authorize.');
-        }
-    });
-    return false;
-};
