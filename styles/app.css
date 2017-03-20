@@ -258,9 +258,10 @@ header {
     margin-bottom: 20px; }
   .search-results .close-wrp {
     position: absolute;
-    font-style: 30px;
-    right: 20px;
-    cursor: pointer; }
+    font-size: 30px;
+    right: 35px;
+    cursor: pointer;
+    top: 24px; }
   .search-results .results-list li {
     margin: 25px 0px; }
   .search-results .results-list .page-name {
