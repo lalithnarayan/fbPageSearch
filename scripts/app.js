@@ -33,12 +33,17 @@ function fetchPageDetails(data){
         }
     });
   }
+  renderPage(pageListData)
+  
+}
+
+function renderPage(data){
+  
   var resultsEle = document.getElementById('results');
   debugger;
   resultsEle.style.display = 'block';
   var resultsContainer = document.getElementById('result-holder');
   resultsContainer.innerHtml = pageListData;
 }
-
 
 
