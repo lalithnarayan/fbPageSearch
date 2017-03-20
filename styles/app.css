@@ -140,7 +140,8 @@ header {
   position: fixed;
   left: 0;
   right: 0;
-  top: 0; }
+  top: 0;
+  z-index: 10001; }
 
 .video-container {
   position: relative;
@@ -185,6 +186,9 @@ header {
   position: relative;
   padding: 8px 0; }
 
+.searchbar-wrp {
+  position: relative; }
+
 .search-input {
   padding: 2px 0 2px 8px;
   border: 1px solid #384C7F;
@@ -214,6 +218,22 @@ header {
   border: none;
   box-shadow: none;
   background: transparent; }
+
+.results-container {
+  position: relative;
+  background: white;
+  display: none; }
+
+.search-results {
+  padding: 20px; }
+  .search-results .title {
+    text-align: center;
+    margin-bottom: 20px; }
+  .search-results .results-list .page-name {
+    font-size: 20px; }
+  .search-results .results-list img {
+    height: 200px;
+    margin: 10px 0px; }
 
 /* Font */
 @font-face {
