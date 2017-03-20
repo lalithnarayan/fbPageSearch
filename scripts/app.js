@@ -22,14 +22,14 @@ function getAllPages(pageName) {
 }
 
 function fetchPageDetails(data){
-  var pageListData = []
+  var pageListData = "";
   for(var i=0;i<data.length;i++){
     var urlCall = "/"+data[0].id + "?fields=category,cover,about,name";
       FB.api(urlCall, function(response) {
         if(response){
           
           var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+response.cover.source+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div></div></li>'
-          pageListData.push(tempItem) 
+          pageListData+=tempItem;
         }
     });
   }
@@ -38,7 +38,7 @@ function fetchPageDetails(data){
 }
 
 function renderPage(data){
-  
+
   var resultsEle = document.getElementById('results');
   debugger;
   resultsEle.style.display = 'block';
