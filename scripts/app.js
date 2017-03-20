@@ -24,7 +24,7 @@ function getAllPages(pageName) {
 
 function fetchPageDetails(data){
   for(var i=0;i<data.length;i++){
-    var urlCall = "/" + data[0].id + "?fields=category,cover,about";
+    var urlCall = data[0].id + "?fields=category,cover,about";
       FB.api(urlCall, function(response) {
         if(response.data){
           debugger;
