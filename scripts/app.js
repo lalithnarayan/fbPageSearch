@@ -1,4 +1,4 @@
-(function() {
+
     var searchElem = document.getElementById('search');
     var accessToken = 1861865227430347;
 
@@ -53,4 +53,4 @@
         return false;
     };
 
-})();
+
