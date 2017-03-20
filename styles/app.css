@@ -234,6 +234,11 @@ header {
   .search-results .results-list img {
     height: 200px;
     margin: 10px 0px; }
+  .search-results .results-list .page-image {
+    float: left;
+    width: 30px; }
+  .search-results .results-list .res-right-wrp {
+    float: left; }
 
 /* Font */
 @font-face {
