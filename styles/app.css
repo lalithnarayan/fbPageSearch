@@ -254,12 +254,15 @@ header {
     height: 100px; }
   .search-results .results-list .page-image {
     float: left;
-    width: 30px; }
+    width: 12%; }
   .search-results .results-list .res-right-wrp {
     float: left;
     margin: 0 20px; }
   .search-results .results-list .page-desc {
     padding: 10px 0px; }
+  .search-results .results-list .page-cat {
+    font-size: 10px;
+    font-style: italic; }
 
 /* Font */
 @font-face {

@@ -12,7 +12,7 @@ function searchPages() {
 function fetchPageDetails(pageName) {
     //GET for Page Node Details
     if (FB) {
-        var urlCall = "/search?q=" + pageName + "?fields=category,cover,about,description&type=page&access_token=";
+        var urlCall = "/search?q=" + pageName + "&type=page&access_token=";
         FB.api(urlCall, function(response) {
           if(response.data){
               renderPage()
