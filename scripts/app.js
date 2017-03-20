@@ -56,7 +56,12 @@ function renderPage(data){
 }
 
 function favoriteItem(){
-  var status = event.curretTarget.getAttribute('data-fav')
+  var status = event.curretTarget.getAttribute('data-fav');
+  if(status){
+event.curretTarget.innerHTML ='LIKE'
+  }else{
+event.curretTarget.innerHTML ='LIKED'
+  }
 
 }
 function closeSearchResults(){
