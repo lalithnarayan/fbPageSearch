@@ -282,6 +282,11 @@ header {
   .search-results .results-list .page-cat {
     font-size: 10px;
     font-style: italic; }
+  .search-results .results-list .page-fav {
+    background-color: #4C66A4;
+    padding: 5px;
+    color: white;
+    cursor: pointer; }
 
 /* Font */
 @font-face {
