@@ -20,7 +20,7 @@ fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 function login(){
 FB.api('/me', function(response) {
-      debugger;
+    console.log(response);
     document.getElementById('login').style.display = "block";
     document.getElementById('login').innerHTML = response.name + " succsessfully logged in!";
     });
