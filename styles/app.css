@@ -247,7 +247,8 @@ header {
   right: 0;
   min-height: 100vh;
   z-index: 1000;
-  overflow: auto; }
+  overflow: auto;
+  bottom: 0; }
 
 .search-results {
   padding: 20px; }
