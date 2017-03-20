@@ -28,7 +28,7 @@ function fetchPageDetails(data){
     if(i === (data.length-1)){
       renderPage(pageListData)
     }
-    var urlCall = "/"+data[0].id + "?fields=category,cover,about,name";
+    var urlCall = "/"+data[i].id + "?fields=category,cover,about,name";
       FB.api(urlCall, function(response) {
         if(response){
           
