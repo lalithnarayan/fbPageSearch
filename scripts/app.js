@@ -23,28 +23,27 @@ function getAllPages(pageName) {
 
 function fetchPageDetails(data){
   var pageListData = "";
+  var resultsContainer = document.getElementById('result-holder');
   for(var i=0;i<data.length;i++){
+    if(i === (data.length-1)){
+      renderPage(pageListData)
+    }
     var urlCall = "/"+data[0].id + "?fields=category,cover,about,name";
       FB.api(urlCall, function(response) {
         if(response){
           
           var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+response.cover.source+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div></div></li>'
           pageListData+=tempItem;
+          resultsContainer.innerHtml = pageListData;
         }
     });
-    if(i === (data.length - 1)){
-       renderPage(pageListData);
-    }  
+
   }
 }
 
 function renderPage(data){
-
   var resultsEle = document.getElementById('results');
-  debugger;
   resultsEle.style.display = 'block';
-  var resultsContainer = document.getElementById('result-holder');
-  resultsContainer.innerHtml = data;
 }
 
 
