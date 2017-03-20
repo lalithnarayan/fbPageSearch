@@ -39,7 +39,7 @@ function renderPage(data){
     var resultsEle = document.getElementById('results');
     var searchbar = document.getElementById('searchbar');
     var pos = 0;
-    var id = setInterval(frame, 5);
+    // var id = setInterval(frame, 5);
     resultsEle.style.display = 'block';
     // function frame() {
     //     if (pos == -400) {
