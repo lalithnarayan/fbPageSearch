@@ -36,26 +36,26 @@ function fetchPageDetails(data){
     
 }
 function renderPage(data){
-    var resultsEle = document.getElementById('results');
-    var searchbar = document.getElementById('searchbar');
-    var pos = 0;
-    // var id = setInterval(frame, 5);
-    resultsEle.style.display = 'block';
-    // function frame() {
-    //     if (pos == -400) {
-    //         clearInterval(id);
-    //     } else {
-    //         pos--;
-    //         resultsEle.style.top = pos + 'px';
-    //         searchbar.style.top = pos / 3 + 'px';
-    //     }
+    // var resultsEle = document.getElementById('results');
+    // var searchbar = document.getElementById('searchbar');
+    // var pos = 0;
+    // // var id = setInterval(frame, 5);
+    // resultsEle.style.display = 'block';
+    // // function frame() {
+    // //     if (pos == -400) {
+    // //         clearInterval(id);
+    // //     } else {
+    // //         pos--;
+    // //         resultsEle.style.top = pos + 'px';
+    // //         searchbar.style.top = pos / 3 + 'px';
+    // //     }
+    // // }
+    // var listItems =[];
+    // // Creating the list
+    // for(var i=0;i<data.length;i++){
+    //   var listItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+ +'"></div><div class="res-right-wrp"><div class="page-name">'+ Coca-Cola +'</div><div class="page-cat">'+Category+'</div><div class="page-desc"><p>'+ +'</p></div></div></li>'
+    //   listItems.push(listItem);
     // }
-    var listItems =[];
-    // Creating the list
-    for(var i=0;i<data.length;i++){
-      var listItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+ +'"></div><div class="res-right-wrp"><div class="page-name">'+ Coca-Cola +'</div><div class="page-cat">'+Category+'</div><div class="page-desc"><p>'+ +'</p></div></div></li>'
-      listItems.push(listItem);
-    }
 
 }
 
