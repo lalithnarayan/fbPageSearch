@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Signika");
+body {
+  -webkit-transition: 2s all;
+          transition: 2s all;
+  font-family: 'Signika', sans-serif; }
+
+header {
+  background-color: #4080ff;
+  text-align: center;
+  color: white;
+  padding: 20px; }
