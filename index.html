@@ -6,6 +6,10 @@ xfbml      : true,
 version    : 'v2.8'
 });
 FB.AppEvents.logPageView();
+FB.Event.subscribe('auth.login', function(response) {
+// do something with response
+login();
+});
 };
 (function(d, s, id){
 var js, fjs = d.getElementsByTagName(s)[0];
@@ -13,4 +17,11 @@ if (d.getElementById(id)) {return;}
 js = d.createElement(s); js.id = id;
 js.src = "//connect.facebook.net/en_US/sdk.js";
 fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script><header><div class="txt">Facebook Graph API Page Search</div></header><section class="video-container"><video id="bgvid" playsinline="" autoplay="" muted="" loop="" poster="assets/bg.jpg"><source src="assets/bgVideo.webm" type="video/webm"><source src="assets/bgVideo.mp4" type="video/mp4"></video><div class="page-wrp"><div class="searchbar-wrp"><div class="bar"><div class="inner"><input id="search" type="search" placeholder="Search for people, places and things" class="search-input"><span data-icon="" aria-hidden="true" class="search-btn"><input type="submit" value="" onclick="searchPages()" class="searchsubmit"></span></div></div></div></div></section><section class="results-container"></section><script src="scripts/app.js"></script></body></html>
+}(document, 'script', 'facebook-jssdk'));
+function login(){
+FB.api('/me', function(response) {
+      debugger;
+    document.getElementById('login').style.display = "block";
+    document.getElementById('login').innerHTML = response.name + " succsessfully logged in!";
+    });
+}</script><header><div class="txt">Facebook Graph API Page Search</div></header><section class="video-container"><video id="bgvid" playsinline="" autoplay="" muted="" loop="" poster="assets/bg.jpg"><source src="assets/bgVideo.webm" type="video/webm"><source src="assets/bgVideo.mp4" type="video/mp4"></video><div class="page-wrp"><div class="searchbar-wrp"><div class="bar"><div class="inner"><input id="search" type="search" placeholder="Search for people, places and things" class="search-input"><span data-icon="" aria-hidden="true" class="search-btn"><input type="submit" value="" onclick="searchPages()" class="searchsubmit"></span></div></div></div></div></section><section class="results-container"></section><script src="scripts/app.js"></script></body></html>
