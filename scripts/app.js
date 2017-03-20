@@ -55,7 +55,7 @@ function renderPage(data){
   resultsEle.style.display = 'block';
 }
 
-function favoriteItem(){
+function favoriteItem(event){
   var status = event.curretTarget.getAttribute('data-fav');
   if(status){
 event.curretTarget.innerHTML ='LIKE'
