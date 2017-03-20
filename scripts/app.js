@@ -32,8 +32,11 @@ function fetchPageDetails(data){
           pageListData+=tempItem;
         }
     });
+    if(i== data.length-1){
+       renderPage(pageListData);
+    }  
   }
-  renderPage(pageListData)
+ 
   
 }
 
@@ -43,7 +46,7 @@ function renderPage(data){
   debugger;
   resultsEle.style.display = 'block';
   var resultsContainer = document.getElementById('result-holder');
-  resultsContainer.innerHtml = pageListData;
+  resultsContainer.innerHtml = data;
 }
 
 
