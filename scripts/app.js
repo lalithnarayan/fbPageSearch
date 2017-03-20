@@ -16,7 +16,6 @@ function getAllPages(pageName) {
         FB.api(urlCall, function(response) {
           if(response.data){
             fetchPageDetails(response.data);
-            renderPage(response.data);
           }
         });
     }
@@ -35,32 +34,11 @@ function fetchPageDetails(data){
     });
   }
   var resultsEle = document.getElementById('results');
+  debugger;
   resultsEle.style.display = 'block';
   var resultsContainer = document.getElementById('result-holder');
   resultsContainer.innerHtml = pageListData;
 }
-function renderPage(data){
-   
-    // var searchbar = document.getElementById('searchbar');
-    // var pos = 0;
-    // // var id = setInterval(frame, 5);
-   
-    // // function frame() {
-    // //     if (pos == -400) {
-    // //         clearInterval(id);
-    // //     } else {
-    // //         pos--;
-    // //         resultsEle.style.top = pos + 'px';
-    // //         searchbar.style.top = pos / 3 + 'px';
-    // //     }
-    // // }
-    // var listItems =[];
-    // // Creating the list
-    // for(var i=0;i<data.length;i++){
-   
-    //   listItems.push(listItem);
-    // }
 
-}
 
 
