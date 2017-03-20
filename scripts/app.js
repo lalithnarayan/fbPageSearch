@@ -1,5 +1,5 @@
 var searchElem = document.getElementById('search');
-var accessToken = 1861865227430347;
+var searchResults = [];
 
 function searchPages() {
     var searchTerm = searchElem.value;
@@ -31,7 +31,9 @@ function fetchPageDetails(data){
     var urlCall = "/"+data[i].id + "?fields=category,cover,about,name";
       FB.api(urlCall, function(response) {
         if(response){
-          var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+response.cover.source+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div></div><div class="page-fav" onclick="favoriteItem(response,e)">LIKE</div></li>'
+          var tempImg = response.cover ? response.cover.source : "";
+          searchResults.push(response);
+          var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+response.cover.source+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div></div><div class="page-fav" onclick="favoriteItem()">LIKE</div></li>'
           pageListData+=tempItem;
           resultsContainer.innerHTML = pageListData;
         }
