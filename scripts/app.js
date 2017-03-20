@@ -4,7 +4,7 @@ var accessToken = 1861865227430347;
 function searchPages() {
     var searchTerm = searchElem.value;
     if (searchTerm) {
-        searchTerm = searchTerm.replace(" ", "");
+        // searchTerm = searchTerm.replace(" ", "");
         fetchPageDetails(searchTerm);
     }
 }
