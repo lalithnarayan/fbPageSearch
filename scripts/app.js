@@ -31,7 +31,6 @@ function fetchPageDetails(data){
     var urlCall = "/"+data[i].id + "?fields=category,cover,about,name";
       FB.api(urlCall, function(response) {
         if(response){
-          
           var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+response.cover.source+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div></div></li>'
           pageListData+=tempItem;
           resultsContainer.innerHTML = pageListData;
