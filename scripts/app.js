@@ -32,12 +32,10 @@ function fetchPageDetails(data){
           pageListData+=tempItem;
         }
     });
-    if(i== data.length-1){
+    if(i === (data.length - 1)){
        renderPage(pageListData);
     }  
   }
- 
-  
 }
 
 function renderPage(data){
