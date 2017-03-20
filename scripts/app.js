@@ -12,6 +12,7 @@ function searchPages() {
 function fetchPageDetails(pageName) {
     //GET for Page Node Details
     if (FB) {
+      var urlCall = "/search?q=Bamboo&type=page&access_token="; 
         FB.api(urlCall, function(response) {
             debugger;
             console.log(response);
