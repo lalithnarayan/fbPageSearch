@@ -25,7 +25,7 @@ function renderPage(){
     var searchbar = document.getElementById('searchbar');
     var pos = 0;
     var id = setInterval(frame, 5);
-
+    resultsEle.style.display = 'block';
     function frame() {
         if (pos == -400) {
             clearInterval(id);
