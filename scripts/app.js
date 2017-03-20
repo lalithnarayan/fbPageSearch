@@ -34,12 +34,12 @@ function fetchPageDetails(data){
           var favStatus;
           var tempImg = response.cover ? response.cover.source : "assets/fb-art.png";
           searchResults.push(response);
-          if(searchResults[i].isFav){
+          if(response.isFav){
             favStatus = true;
+
           }else{
             favStatus = false;
           }
-
           searchResults[i].isFav = favStatus;
           var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+tempImg+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div></div><div class="page-fav" data-fav='+favStatus+'onclick="favoriteItem()">LIKE</div></li>'
           pageListData+=tempItem;
