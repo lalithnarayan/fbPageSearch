@@ -48,8 +48,8 @@ function renderPage(data){
   resultsEle.style.display = 'block';
 }
 
-function favoriteItem(data,e){
-  debugger;
+function favoriteItem(){
+  var status = event.curretTarget.getAttribute('data-fav')
 
 }
 function closeSearchResults(){
