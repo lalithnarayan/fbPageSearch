@@ -8,12 +8,16 @@ version    : 'v2.8'
 FB.AppEvents.logPageView();
 FB.login(function(response) {
       if (response.authResponse) {
+      var searchElem = document.getElementById('search');
        console.log('Welcome!  Fetching your information.... ');
        FB.api('/me', function(response) {
+         
+          searchElem.style.display ='block'
          console.log('Good to see you, ' + response.name + '.');
        });
       } else {
        console.log('User cancelled login or did not fully authorize.');
+       searchElem.style.display ='none'
       }
   });
 };
