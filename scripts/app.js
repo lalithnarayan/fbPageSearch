@@ -5,20 +5,32 @@ function searchPages() {
     var searchTerm = searchElem.value;
     if (searchTerm) {
         // searchTerm = searchTerm.replace(" ", "");
-        fetchPageDetails(searchTerm);
+        getAllPages(searchTerm);
     }
 }
 
-function fetchPageDetails(pageName) {
+function getAllPages(pageName) {
     //GET for Page Node Details
     if (FB) {
-        var urlCall = "/search?q=" + pageName + "&type=page&access_token=";
+        var urlCall = "/search?q=" + pageName + "&type=page&access_token=?fields=category,about,cover";
         FB.api(urlCall, function(response) {
           if(response.data){
+            console.log(response.data);
+              fetchPageDetails(response.data);
               renderPage()
           }
         });
     }
+}
+
+function fetchPageDetails(data){
+  var urlCall = "/search?q=" + pageName + "&type=page&access_token=";
+        FB.api(urlCall, function(response) {
+          if(response.data){
+              fetchPageDetails(response.data);
+              renderPage()
+          }
+        });
 }
 function renderPage(){
     var resultsEle = document.getElementById('results');
@@ -29,7 +41,6 @@ function renderPage(){
     function frame() {
         if (pos == -400) {
             clearInterval(id);
-
         } else {
             pos--;
             resultsEle.style.top = pos + 'px';
@@ -37,4 +48,5 @@ function renderPage(){
         }
     }
 }
+
 
