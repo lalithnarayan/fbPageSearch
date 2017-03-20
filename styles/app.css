@@ -286,7 +286,10 @@ header {
     background-color: #4C66A4;
     padding: 5px;
     color: white;
-    cursor: pointer; }
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 4px;
+    text-align: center; }
 
 /* Font */
 @font-face {
