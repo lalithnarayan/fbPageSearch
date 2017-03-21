@@ -16,8 +16,10 @@ function getAllPages(pageName) {
     if (FB) {
         var urlCall = "/search?q=" + pageName + "&type=page&access_token="+app_id+"|"+app_secret;
         FB.api(urlCall, function(response) {
-            if (response.data) {
+            if (response.data.length > 0) {
                 fetchPageDetails(response.data);
+            }else{
+                alert("No Results Found");
             }
         });
     }
