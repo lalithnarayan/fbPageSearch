@@ -53,7 +53,7 @@ function renderPage(data) {
 }
 
 function favoriteItem(ele) {
-    var status = event.getAttribute("data-fav");
+    var status = ele.getAttribute("data-fav");
     if (status=='false') {
         ele.innerHTML = 'LIKE'
     } else {
