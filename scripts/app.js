@@ -54,10 +54,13 @@ function renderPage(data) {
 
 function favoriteItem(ele) {
     var status = ele.getAttribute("data-fav");
+    var nodeList = Array.prototype.slice.call( document.getElementById('result-holder').children );
+    nodeList.indexOf( ele );
+    debugger;
     if (status=='false') {
-        ele.innerHTML = 'LIKE'
-    } else {
         ele.innerHTML = 'LIKED'
+    } else {
+        ele.innerHTML = 'LIKE'
     }
 
 }
