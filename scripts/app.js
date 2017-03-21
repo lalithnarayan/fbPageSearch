@@ -1,6 +1,8 @@
 var searchElem = document.getElementById('search');
 var searchResults = [];
 var pageListData = "";
+var app_id =1861865227430347;
+var app_secret=ee4c744fad6e8205ccbf1e8981bfa481;
 
 function searchPages() {
     var searchTerm = searchElem.value;
@@ -13,7 +15,7 @@ function searchPages() {
 function getAllPages(pageName) {
     //GET for Page Node Details
     if (FB) {
-        var urlCall = "/search?q=" + pageName + "&type=page&access_token=1861865227430347|ee4c744fad6e8205ccbf1e8981bfa481";
+        var urlCall = "/search?q=" + pageName + "&type=page&access_token="+app_id+"|"+app_secret;
         FB.api(urlCall, function(response) {
             if (response.data) {
                 fetchPageDetails(response.data);
@@ -98,6 +100,8 @@ function showFav() {
         alert("You have not liked any Pages yet");
     }
 }
+
+
 
 function loginFB() {
     FB.login(function(response) {
