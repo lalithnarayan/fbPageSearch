@@ -90,36 +90,13 @@ function showFav() {
         for (var i = 0; i < favouriteResultList.length; i++) {
             var data = favouriteResultList[i];
             var displayClass= data.favStatus == 'true' ? "" : "hide";
-                var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
-                var tempItem = '<li class="result-wrp clearfix'+ +'"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + data.category + '</div><div class="page-desc"><p>' + data.about + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKED</div></div></li>'
-                favSavedList += tempItem;
-                favContainer.innerHTML = favSavedList;
+            var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
+            var tempItem = '<li class="result-wrp clearfix'+ displayClass+'"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + data.category + '</div><div class="page-desc"><p>' + data.about + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKED</div></div></li>'
+            favSavedList += tempItem;
+            favContainer.innerHTML = favSavedList;
         }
         favoriteEle.style.display = 'block';
     } else {
         alert("You have not liked any Pages yet");
     }
 }
-
-
-
-function loginFB() {
-    FB.login(function(response) {
-        if (response.authResponse) {
-            var searchElem = document.getElementById('searchbar');
-            var loginEle = document.getElementById('loginbar');
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-
-                searchElem.style.display = 'block';
-                loginEle.style.display = 'none';
-                console.log('Good to see you, ' + response.name + '.');
-            });
-        } else {
-            console.log('User cancelled login or did not fully authorize.');
-            searchElem.style.display = 'none'
-            loginEle.style.display = 'block';
-        }
-    });
-}
-
