@@ -40,16 +40,19 @@ function fetchPageDetails(data) {
             }
         });
     }
+    var resultsEle = document.getElementById('results');
+    resultsEle.style.display = 'block';
 }
 
 function renderPage(data) {
     var resultsContainer = document.getElementById('result-holder');
     var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
-    var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + data.category + '</div><div class="page-desc"><p>' + data.about + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKE</div></div></li>'
+    var tempCategory = data.category ? data.category :"";
+    var tempDesc=data.abouttempDesc=data.about?data.about:"";
+    var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + tempCategory + '</div><div class="page-desc"><p>' + tempDesc + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKE</div></div></li>'
     pageListData += tempItem;
     resultsContainer.innerHTML = pageListData;
-    var resultsEle = document.getElementById('results');
-    resultsEle.style.display = 'block';
+
 }
 
 function favoriteItem(ele) {
