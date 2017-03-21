@@ -1,5 +1,6 @@
 var searchElem = document.getElementById('search');
 var searchResults = [];
+var pageListData = "";
 
 function searchPages() {
     var searchTerm = searchElem.value;
@@ -43,7 +44,7 @@ function fetchPageDetails(data){
 }
 
 function renderPage(data){
-  var pageListData = "";
+  
   var favStatus;
   var resultsContainer = document.getElementById('result-holder');
   var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
