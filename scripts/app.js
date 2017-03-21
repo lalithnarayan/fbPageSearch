@@ -59,7 +59,7 @@ function favoriteItem(ele) {
     var parentElement =ele.parentElement.parentElement.parentElement;
     var nodeList = Array.prototype.slice.call(parentElement.children);
     if(!searchResults.length){
-      searchResults = JSON.parse(window.localStorage.getItem("searchResults"));
+      searchResults = JSON.parse(window.sessionStorage.getItem("searchResults"));
     }
     var clcikedIndex = nodeList.indexOf(ele.parentElement.parentElement);
     if (status == 'false') {
@@ -70,7 +70,7 @@ function favoriteItem(ele) {
         searchResults[clcikedIndex].favStatus = "false";
     }
     ele.setAttribute("data-fav", searchResults[clcikedIndex].favStatus);
-    localStorage.setItem("searchResults", JSON.stringify(searchResults));
+    sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
 }
 
 function closeSearchResults() {
@@ -85,7 +85,7 @@ function closeFavoriteResults() {
 
 function showFav() {
     var favSavedList ='';
-    var favouriteResultList = JSON.parse(window.localStorage.getItem("searchResults"));
+    var favouriteResultList = JSON.parse(window.sessionStorage.getItem("searchResults"));
     var favoriteEle = document.getElementById('favorite');
     var favContainer = document.getElementById('fav-holder');
     if (favouriteResultList) {
