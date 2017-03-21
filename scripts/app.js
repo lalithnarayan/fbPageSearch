@@ -25,9 +25,6 @@ function fetchPageDetails(data){
   var pageListData = "";
   var resultsContainer = document.getElementById('result-holder');
   for(var i=0;i<data.length;i++){
-    if(i === (data.length-1)){
-      renderPage(pageListData)
-    }
     var urlCall = "/"+data[i].id + "?fields=category,cover,about,name";
       FB.api(urlCall, function(response) {
         if(response){
@@ -48,11 +45,15 @@ function fetchPageDetails(data){
     });
 
   }
+  renderPage(i)
 }
 
-function renderPage(data){
-  var resultsEle = document.getElementById('results');
-  resultsEle.style.display = 'block';
+function renderPage(index){
+  if(index == (searchResults.length-1)){
+    var resultsEle = document.getElementById('results');
+    resultsEle.style.display = 'block';
+  }
+  
 }
 
 function favoriteItem(event){
