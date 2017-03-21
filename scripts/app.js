@@ -71,6 +71,11 @@ function closeSearchResults() {
     resultsEle.style.display = 'none';
 }
 
+function closeFavoriteResults(){
+  var favEle = document.getElementById('favorite');
+    favEle.style.display = 'none';
+}
+
 function showFav() {
     var favouriteResultList = JSON.parse(window.localstorage.getItem("searchResults"));
     var favoriteEle = document.getElementById('favorite');
