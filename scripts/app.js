@@ -43,9 +43,9 @@ function fetchPageDetails(data){
           resultsContainer.innerHTML = pageListData;
         }
     });
-
+    renderPage(i)
   }
-  renderPage(i)
+  
 }
 
 function renderPage(index){
