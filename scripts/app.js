@@ -2,7 +2,7 @@ var searchElem = document.getElementById('search');
 var searchResults = [];
 var pageListData = "";
 var app_id =1861865227430347;
-var app_secret="ee4c744fad6e8205ccbf1e8981bfa481";
+var app_secret=ee4c744fad6e8205ccbf1e8981bfa481;
 
 function searchPages() {
     var searchTerm = searchElem.value;
@@ -26,7 +26,7 @@ function getAllPages(pageName) {
 
 function fetchPageDetails(data) {
     for (var i = 0; i < data.length; i++) {
-        var urlCall = "/" + data[i].id + "?fields=category,cover,about,name";
+        var urlCall = "/" + data[i].id + "?fields=category,cover,about,name"+"&type=page&access_token="+app_id+"|"+app_secret;
         FB.api(urlCall, function(response) {
             if (response) {
                 if (response.isFav) {
