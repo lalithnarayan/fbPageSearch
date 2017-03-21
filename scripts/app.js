@@ -55,7 +55,7 @@ function renderPage(data) {
 function favoriteItem(ele) {
     var status = ele.getAttribute("data-fav");
     var nodeList = Array.prototype.slice.call( document.getElementById('result-holder').children );
-    nodeList.indexOf( ele );
+    nodeList.indexOf( ele.parentElement.parentElement );
     debugger;
     if (status=='false') {
         ele.innerHTML = 'LIKED'
