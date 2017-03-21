@@ -76,7 +76,7 @@ function closeFavoriteResults() {
     favEle.style.display = 'none';
 }
 
-document.getElementById('showFav').addEventListener('click', function() {
+function showFav() {
     var favouriteResultList = JSON.parse(window.localStorage.getItem("searchResults"));
     var favoriteEle = document.getElementById('favorite');
     var favContainer = document.getElementById('fav-holder');
@@ -94,7 +94,9 @@ document.getElementById('showFav').addEventListener('click', function() {
     } else {
         alert("You have not liked any Pages yet");
     }
-});
+}
+
+
 
 function loginFB() {
     FB.login(function(response) {
@@ -114,5 +116,5 @@ function loginFB() {
             loginEle.style.display = 'block';
         }
     });
-};
 }
+
