@@ -57,7 +57,8 @@ function renderPage(data) {
 
 function favoriteItem(ele) {
     var status = ele.getAttribute("data-fav");
-    var nodeList = Array.prototype.slice.call(document.getElementById('result-holder').children);
+    var parentElement =ele.parentElement.parentElement.parentElement;
+    var nodeList = Array.prototype.slice.call(parentElement.children);
     if(!searchResults){
       searchResults = JSON.parse(window.localStorage.getItem("searchResults"));
     }
