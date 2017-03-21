@@ -66,7 +66,7 @@ function favoriteItem(ele) {
         ele.innerHTML = 'LIKE';
         searchResults[clcikedIndex].favStatus = "false";
     }
-
+    ele.setAttribute("data-fav", searchResults[clcikedIndex].favStatus);
     localStorage.setItem("searchResults", JSON.stringify(searchResults));
 }
 
