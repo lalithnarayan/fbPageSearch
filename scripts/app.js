@@ -15,54 +15,54 @@ function getAllPages(pageName) {
     if (FB) {
         var urlCall = "/search?q=" + pageName + "&type=page&access_token=";
         FB.api(urlCall, function(response) {
-          if(response.data){
-            fetchPageDetails(response.data);
-          }
+            if (response.data) {
+                fetchPageDetails(response.data);
+            }
         });
     }
 }
 
-function fetchPageDetails(data){
-  for(var i=0;i<data.length;i++){
-    var urlCall = "/"+data[i].id + "?fields=category,cover,about,name";
-      FB.api(urlCall, function(response) {
-        if(response){
-           if(response.isFav){
-              response.favStatus = true;
+function fetchPageDetails(data) {
+    for (var i = 0; i < data.length; i++) {
+        var urlCall = "/" + data[i].id + "?fields=category,cover,about,name";
+        FB.api(urlCall, function(response) {
+            if (response) {
+                if (response.isFav) {
+                    response.favStatus = true;
 
-            }else{
-              response.favStatus = false;
+                } else {
+                    response.favStatus = false;
+                }
+                searchResults.push(response);
+                renderPage(response);
             }
-          searchResults.push(response);
-          renderPage(response);
-        }
-    });
-  }
+        });
+    }
 }
 
-function renderPage(data){
-  
-  var favStatus;
-  var resultsContainer = document.getElementById('result-holder');
-  var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
-  var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+tempImg+'"></div><div class="res-right-wrp"><div class="page-name">'+ data.name +'</div><div class="page-cat">'+data.category+'</div><div class="page-desc"><p>'+data.about +'</p></div><div class="page-fav" data-fav="'+data.favStatus+'"onclick="favoriteItem(this)">LIKE</div></div></li>'
-  pageListData+=tempItem;
-  resultsContainer.innerHTML = pageListData;
-  var resultsEle = document.getElementById('results');
-  resultsEle.style.display = 'block';
+function renderPage(data) {
+
+    var favStatus;
+    var resultsContainer = document.getElementById('result-holder');
+    var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
+    var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + data.category + '</div><div class="page-desc"><p>' + data.about + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKE</div></div></li>'
+    pageListData += tempItem;
+    resultsContainer.innerHTML = pageListData;
+    var resultsEle = document.getElementById('results');
+    resultsEle.style.display = 'block';
 }
 
-function favoriteItem(event){
-  var status = event.curretTarget.getAttribute('data-fav');
-  if(status){
-event.curretTarget.innerHTML ='LIKE'
-  }else{
-event.curretTarget.innerHTML ='LIKED'
-  }
+function favoriteItem(ele) {
+    var status = event.getAttribute("data-fav");
+    if (status=='false') {
+        ele.innerHTML = 'LIKE'
+    } else {
+        ele.innerHTML = 'LIKED'
+    }
 
 }
-function closeSearchResults(){
-  var resultsEle = document.getElementById('results');
-  resultsEle.style.display = 'none';
-}
 
+function closeSearchResults() {
+    var resultsEle = document.getElementById('results');
+    resultsEle.style.display = 'none';
+}
