@@ -56,7 +56,7 @@ function favoriteItem(ele) {
     var status = ele.getAttribute("data-fav");
     var parentElement =ele.parentElement.parentElement.parentElement;
     var nodeList = Array.prototype.slice.call(parentElement.children);
-    if(searchResults.length > 0){
+    if(!searchResults.length){
       searchResults = JSON.parse(window.localStorage.getItem("searchResults"));
     }
     var clcikedIndex = nodeList.indexOf(ele.parentElement.parentElement);
