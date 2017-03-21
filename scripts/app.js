@@ -76,26 +76,25 @@ function closeFavoriteResults() {
     favEle.style.display = 'none';
 }
 
-function showFav() {
+document.getElementById('showFav').addEventListener('click', function() {
     var favouriteResultList = JSON.parse(window.localStorage.getItem("searchResults"));
     var favoriteEle = document.getElementById('favorite');
     var favContainer = document.getElementById('fav-holder');
-    if(favouriteResultList){
-      for (var i = 0; i < favouriteResultList.length; i++) {
-          var data = favouriteResultList[i];
-          if (data.favStatus == 'true') {
-              var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
-              var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + data.category + '</div><div class="page-desc"><p>' + data.about + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKED</div></div></li>'
-              favSavedList += tempItem;
-              favContainer.innerHTML = favSavedList;
-          }
-      }
-      favoriteEle.style.display = 'block';
-    }else{
-      alert("You have not liked any Pages yet");
+    if (favouriteResultList) {
+        for (var i = 0; i < favouriteResultList.length; i++) {
+            var data = favouriteResultList[i];
+            if (data.favStatus == 'true') {
+                var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
+                var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + data.category + '</div><div class="page-desc"><p>' + data.about + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKED</div></div></li>'
+                favSavedList += tempItem;
+                favContainer.innerHTML = favSavedList;
+            }
+        }
+        favoriteEle.style.display = 'block';
+    } else {
+        alert("You have not liked any Pages yet");
     }
-      
-}
+});
 
 function loginFB() {
     FB.login(function(response) {
