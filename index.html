@@ -1,34 +1,91 @@
-<!DOCTYPE html><html lang="en"><head><title>Facebook Graph API </title><!--Meta --><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content=""><meta name="viewport" content="initial-scale = 1.0, maximum-scale=1.0"><link rel="icon" href="favicon.ico" type="image/x-icon"><!--stylesheet--><!-- build:css css/app.min.css --><link rel="stylesheet" type="text/css" href="styles/app.css"><!-- endbuild -->
-<!-- endbuild --></head><body><script>window.fbAsyncInit = function() {
-FB.init({
-appId      : '1861865227430347',
-xfbml      : true,
-version    : 'v2.8'
-});
-FB.AppEvents.logPageView();
-FB.login(function(response) {
-      if (response.authResponse) {
-      var searchElem = document.getElementById('searchbar');
-      var loginEle = document.getElementById('loginbar');
-       console.log('Welcome!  Fetching your information.... ');
-       FB.api('/me', function(response) {
-         
-          searchElem.style.display ='block';
-          loginEle.style.display='none';
-         console.log('Good to see you, ' + response.name + '.');
-       });
-      } else {
-       console.log('User cancelled login or did not fully authorize.');
-       searchElem.style.display ='none'
-       loginEle.style.display='block';
-      }
-  });
-};
-(function(d, s, id){
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {return;}
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/en_US/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script><header><div class="txt">Facebook Graph API Page Search</div></header><section class="video-container"><video id="bgvid" playsinline="" autoplay="" muted="" loop="" poster="assets/bg.jpg"><source src="assets/bgVideo.webm" type="video/webm"><source src="assets/bgVideo.mp4" type="video/mp4"></video><div class="page-wrp"><div id="loginbar" class="searchbar-wrp"><div class="title">Please wait while we Login</div><button type="button" onclick="loginFB()">Login</button></div><div id="searchbar" class="searchbar-wrp"><div class="bar"><div class="inner"><input id="search" type="search" placeholder="Search for people, places and things" class="search-input"><span data-icon="" aria-hidden="true" class="search-btn"><input type="submit" value="" onclick="searchPages()" class="searchsubmit"></span></div></div></div></div></section><section id="results" class="results-container"><section class="search-results"><div class="title">Results</div><div onclick="closeSearchResults()" class="close-wrp">X</div><section class="results-list"><ul id="result-holder"></ul></section></section>
-</section><script src="scripts/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Facebook Graph API </title>
+    <!--Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--stylesheet-->
+    <!-- build:css css/app.min.css -->
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
+    <!-- endbuild -->
+    <!-- endbuild -->
+</head>
+
+<body>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1861865227430347',
+            xfbml: true,
+            version: 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+        FB.login(function(response) {
+            if (response.authResponse) {
+                var searchElem = document.getElementById('searchbar');
+                var loginEle = document.getElementById('loginbar');
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+
+                    searchElem.style.display = 'block';
+                    loginEle.style.display = 'none';
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+                searchElem.style.display = 'none'
+                loginEle.style.display = 'block';
+            }
+        });
+    };
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <header>
+        <div class="txt">Facebook Graph API Page Search</div>
+    </header>
+    <section class="video-container">
+        <video id="bgvid" playsinline="" autoplay="" muted="" loop="" poster="assets/bg.jpg">
+            <source src="assets/bgVideo.webm" type="video/webm">
+            <source src="assets/bgVideo.mp4" type="video/mp4">
+        </video>
+        <div class="page-wrp">
+            <div id="loginbar" class="searchbar-wrp">
+                <div class="title">Please wait while we Login</div>
+                <button type="button" onclick="loginFB()">Login</button>
+            </div>
+            <div id="searchbar" class="searchbar-wrp">
+                <div class="bar">
+                    <div class="inner">
+                        <input id="search" type="search" placeholder="Search for people, places and things" class="search-input"><span data-icon="" aria-hidden="true" class="search-btn"><input type="submit" value="" onclick="searchPages()" class="searchsubmit"></span></div>
+                </div>
+                <button type="button" onclick="showFav()">show Favorite </button>
+            </div>
+        </div>
+    </section>
+    <section id="results" class="results-container">
+        <section class="search-results">
+            <div class="title">Results</div>
+            <div onclick="closeSearchResults()" class="close-wrp">X</div>
+            <section class="results-list">
+                <ul id="result-holder"></ul>
+            </section>
+        </section>
+    </section>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>

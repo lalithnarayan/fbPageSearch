@@ -55,17 +55,21 @@ function renderPage(data) {
 function favoriteItem(ele) {
     var status = ele.getAttribute("data-fav");
     var nodeList = Array.prototype.slice.call( document.getElementById('result-holder').children );
-    nodeList.indexOf( ele.parentElement.parentElement );
-    debugger;
+    var clcikedIndex = nodeList.indexOf( ele.parentElement.parentElement );
     if (status=='false') {
         ele.innerHTML = 'LIKED'
     } else {
         ele.innerHTML = 'LIKE'
     }
-
+    searchResults[clcikedIndex].favStatus = !searchResults[clcikedIndex].favStatus; 
+    localStorage.setItem("searchResults", JSON.stringify(searchResults));
 }
 
 function closeSearchResults() {
     var resultsEle = document.getElementById('results');
     resultsEle.style.display = 'none';
+}
+
+function showFav(){
+  debugger;
 }
