@@ -1,7 +1,6 @@
 var searchElem = document.getElementById('search');
 var searchResults = [];
 var pageListData = "";
-var favSavedList = "";
 
 function searchPages() {
     var searchTerm = searchElem.value;
@@ -80,6 +79,7 @@ function closeFavoriteResults() {
 }
 
 function showFav() {
+    var favSavedList ='';
     var favouriteResultList = JSON.parse(window.localStorage.getItem("searchResults"));
     var favoriteEle = document.getElementById('favorite');
     var favContainer = document.getElementById('fav-holder');
