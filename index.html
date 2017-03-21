@@ -19,22 +19,40 @@
 <body>
     <script>
     window.fbAsyncInit = function() {
-            FB.init({
-                appId: '1861865227430347',
-                xfbml: true,
-                version: 'v2.8'
-            });
-            FB.AppEvents.logPageView();
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+        FB.init({
+            appId: '1861865227430347',
+            xfbml: true,
+            version: 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+        //- FB.login(function(response) {
+        //-       if (response.authResponse) {
+        //-       var searchElem = document.getElementById('searchbar');
+        //-       var loginEle = document.getElementById('loginbar');
+        //-        console.log('Welcome!  Fetching your information.... ');
+        //-        FB.api('/me', function(response) {
+
+        //-           searchElem.style.display ='block';
+        //-           loginEle.style.display='none';
+        //-          console.log('Good to see you, ' + response.name + '.');
+        //-        });
+        //-       } else {
+        //-        console.log('User cancelled login or did not fully authorize.');
+        //-        searchElem.style.display ='none'
+        //-        loginEle.style.display='block';
+        //-       }
+        //-   });
+    };
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
     </script>
     <header>
         <div class="txt">Facebook Graph API Page Search</div>
