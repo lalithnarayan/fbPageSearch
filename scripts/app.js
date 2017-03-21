@@ -2,7 +2,7 @@ var searchElem = document.getElementById('search');
 var searchResults = [];
 var pageListData = "";
 var app_id =1861865227430347;
-var app_secret=ee4c744fad6e8205ccbf1e8981bfa481;
+var app_secret="ee4c744fad6e8205ccbf1e8981bfa481";
 
 function searchPages() {
     var searchTerm = searchElem.value;
