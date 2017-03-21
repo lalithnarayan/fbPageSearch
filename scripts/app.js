@@ -28,27 +28,27 @@ function fetchPageDetails(data){
     var urlCall = "/"+data[i].id + "?fields=category,cover,about,name";
       FB.api(urlCall, function(response) {
         if(response){
-          var favStatus;
-          var tempImg = response.cover ? response.cover.source : "assets/fb-art.png";
-          searchResults.push(response);
-          if(response.isFav){
-            favStatus = true;
-
-          }else{
-            favStatus = false;
-          }
-          // searchResults[i].isFav = favStatus;
-          var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+tempImg+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div><div class="page-fav" data-fav="'+favStatus+'"onclick="favoriteItem(e)">LIKE</div></div></li>'
-          pageListData+=tempItem;
-          resultsContainer.innerHTML = pageListData;
+          renderPage(response,i)
         }
     });
-    renderPage(i)
   }
   
 }
 
-function renderPage(index){
+function renderPage(data,i){
+  debugger;
+  var favStatus;
+  var tempImg = response.cover ? response.cover.source : "assets/fb-art.png";
+  searchResults.push(response);
+  if(response.isFav){
+    favStatus = true;
+
+  }else{
+    favStatus = false;
+  }
+  var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="'+tempImg+'"></div><div class="res-right-wrp"><div class="page-name">'+ response.name +'</div><div class="page-cat">'+response.category+'</div><div class="page-desc"><p>'+response.about +'</p></div><div class="page-fav" data-fav="'+favStatus+'"onclick="favoriteItem(e)">LIKE</div></div></li>'
+  pageListData+=tempItem;
+  resultsContainer.innerHTML = pageListData;
   if(index == (searchResults.length-1)){
     var resultsEle = document.getElementById('results');
     resultsEle.style.display = 'block';
