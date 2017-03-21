@@ -54,6 +54,9 @@ function renderPage(data) {
 function favoriteItem(ele) {
     var status = ele.getAttribute("data-fav");
     var nodeList = Array.prototype.slice.call(document.getElementById('result-holder').children);
+    if(!searchResults){
+      searchResults = JSON.parse(window.localStorage.getItem("searchResults"));
+    }
     var clcikedIndex = nodeList.indexOf(ele.parentElement.parentElement);
     if (status == 'false') {
         ele.innerHTML = 'LIKED';
