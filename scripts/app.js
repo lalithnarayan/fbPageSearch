@@ -77,7 +77,7 @@ function closeFavoriteResults(){
 }
 
 function showFav() {
-    var favouriteResultList = JSON.parse(window.localstorage.getItem("searchResults"));
+    var favouriteResultList = JSON.parse(window.localStorage.getItem("searchResults"));
     var favoriteEle = document.getElementById('favorite');
     var favContainer = document.getElementById('fav-holder');
     for (var i = 0; i < favouriteResultList.length; i++) {
