@@ -46,6 +46,7 @@ function fetchPageDetails(data) {
 }
 
 function renderPage(data) {
+    pageListData = "";
     var resultsContainer = document.getElementById('result-holder');
     var tempImg = data.cover ? data.cover.source : "assets/fb-art.png";
     var tempItem = '<li class="result-wrp clearfix"><div class="page-image"><img src="' + tempImg + '"></div><div class="res-right-wrp"><div class="page-name">' + data.name + '</div><div class="page-cat">' + data.category + '</div><div class="page-desc"><p>' + data.about + '</p></div><div class="page-fav" data-fav="' + data.favStatus + '"onclick="favoriteItem(this)">LIKE</div></div></li>'
